@@ -333,7 +333,7 @@ body{
     transition:all 0.3s ease;
 }
 
-.topbars .left-bar .mega-menu .sub-mega.show{
+.topbars .left-bar .mega-menu .sub-mega.topshow{
     transform:translateY(0);
     opacity:1;
     visibility:visible;
@@ -481,7 +481,7 @@ body{
     transition:all 0.2s ease;
 }
 
-.right-bar .drives .drive-img.driveshow{
+.right-bar .drives .drive-img.topshow{
     transform:translateY(0);
     opacity:1;
     visibility:visible;
@@ -558,7 +558,7 @@ body{
     transition:all 0.3s ease;
 }
 
-.notification .noti-content.notishow{
+.notification .noti-content.topshow{
     transform:translateY(0px);
     opacity:1;
     visibility:visible;

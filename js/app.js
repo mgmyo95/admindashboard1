@@ -38,32 +38,37 @@ let getmegamenu = document.querySelector(".mega-menu");
 let getsubmega = document.querySelector(".sub-mega");
 let geticon = document.querySelector('.right-bar .search .icons');
 let getsearchbox = document.querySelector('.right-bar .search-box');
-let topmenu = document.querySelector('.topmenu');
+let topmenus = document.querySelectorAll('.topmenu');
 let topsub = document.querySelector('.topsub');
-let driveicon = document.querySelector('.drive-icon');
-let driveimg = document.querySelector('.drive-img');
 let openfullscreen = document.querySelector('.openfullscreen');
 let closefullscreen = document.querySelector('.closefullscreen');
-let getnoti = document.querySelector('.noti-icon');
-let getnotimessage = document.querySelector('.noti-content');
 
-getmegamenu.addEventListener('click',showmega);
 geticon.addEventListener('click',showsearchbox);
-function showmega(){
-    getsubmega.classList.toggle('show');
-};
-
 function showsearchbox(){
     getsearchbox.classList.toggle('show-search');
 }
 
-topmenu.addEventListener('click',function(){
-    topsub.classList.toggle('topshow');
+topmenus.forEach((topmenu,idx)=>{
+    topmenu.addEventListener('click',function(){
+        // console.log(topmenu,idx);
+        showtopmenu(idx);
+    });
 });
 
-driveicon.addEventListener('click',function(){
-    driveimg.classList.toggle('driveshow');
-})
+function showtopmenu(idx){
+    topmenus.forEach((curmenu,curidx)=>{
+        // console.log(idx,curidx);
+        let menucontent = curmenu.nextElementSibling;
+        // console.log(menucontent);
+
+        if(idx === curidx){
+            // menucontent.classList.add('topshow');
+            menucontent.classList.toggle('topshow');
+        }else{
+            menucontent.classList.remove('topshow');
+        }
+    });
+};
 
 openfullscreen.onclick = function(){
     let getde = document.documentElement;
@@ -79,7 +84,7 @@ openfullscreen.onclick = function(){
     openfullscreen.style.display = "none";
     closefullscreen.style.display = "inline-block";
 
-}
+};
 
 closefullscreen.onclick = function(){
     if(document.exitFullscreen){
@@ -94,12 +99,8 @@ closefullscreen.onclick = function(){
 
     openfullscreen.style.display = "inline-block";
     closefullscreen.style.display = "none";
-}
+};
 
-getnoti.onclick = function(){
-    console.log("hi")
-    getnotimessage.classList.toggle('notishow');
-}
 
 //show and hide topbar > mega-menu
 
