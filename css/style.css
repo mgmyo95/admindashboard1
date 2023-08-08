@@ -11,7 +11,7 @@
 
 :root {
     --navcolor: #252c3a;
-    --bodycolor: #1a2430;
+    --bodycolor: #121922;
     --menucolor: #b2bec3;
     --navfont: 0.8rem;
     --fontcolor: #f2f2f2;
@@ -40,7 +40,7 @@ html {
 body {
     height: 100vh;
     background-color: var(--bodycolor);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .containers {
@@ -55,6 +55,9 @@ body {
     height: 100%;
     background: var(--navcolor);
     position: fixed;
+    top:0;
+    left:0;
+    z-index:100;
     overflow: hidden;
     transition: all 0.2s ease;
 }
@@ -128,16 +131,16 @@ body {
 }
 
 @media only screen and (width < 998px) {
-    /* .navigations{
+    .navigations{
         left:-300px;
     }
 
     .navigations.active{
         width:250px;
         left:0;
-    } */
+    }
 
-    .navigations {
+    /* .navigations {
         z-index: 100;
         opacity: 0;
         visibility: hidden;
@@ -147,7 +150,7 @@ body {
         width: 250px;
         opacity: 1;
         visibility: visible;
-    }
+    } */
 
     .navigations .nav-lists .menu-title {
         display: none;
@@ -161,7 +164,7 @@ body {
 /* Start Topbar Section  */
 .mains {
     width: calc(100% - 250px);
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--white);
 
     position: absolute;
@@ -195,6 +198,17 @@ body {
 
 }
 
+
+@media only screen and (width < 998px){
+    .mains{
+        width:100%;
+        left:0;
+    }
+
+    .mains.active{
+        left:250px;
+    }
+}
 
 
 /* Start Leftbar */
@@ -1020,10 +1034,145 @@ body {
     }
 }
 
-
-
 /* End Rightbar */
-
 /* End Topbar Section */
+
+.details{
+    width:100%;
+    padding:20px;
+    padding-top:100px;
+}
+
+.details .details-number{
+    width:100%;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+
+.details .details-list{
+    width:100%;
+
+    display:grid;
+    grid-template-columns:repeat(3 , 1fr);
+    gap:20px;
+}
+
+.details .details-list div{
+    height:150px;
+    background:var(--navcolor);
+    border-radius:4px;
+    overflow:hidden;
+}
+
+.details .details-list .number-sale{
+    position:relative;
+}
+
+.details .details-list .number-sale ul{
+    width:100%;
+    padding:18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    & li p{
+        color:var(--thumbcolor);
+        font-size:14px;
+    }
+
+    & li h3{
+        color:var(--fontcolor);
+        font-size:22px;
+    }
+
+    & li img{
+        width:30px;
+        height:30px;
+        object-fit:cover;
+    }
+}
+
+.details .details-list .number-sale .percent{
+    width:100%;
+    height:50px;
+    /* background:red; */
+    padding-inline:20px;
+    box-shadow:0 0 1px #ddd;
+
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-radius:0;
+
+    & span{
+        white-space:nowrap;
+    }
+
+    & span:first-child{
+        font-size:12px;
+        background:rgba(6, 231, 156, 0.3);
+        color:rgb(167, 243, 218);
+        padding:0 10px;
+        border-radius:5px;
+    }
+
+    & span:last-child{
+        color:var(--thumbcolor);
+    }
+}
+
+.details .details-list div:last-child{
+    height:auto;
+    grid-column:1 / 4;
+}
+
+.details .details-number .analytics{
+    width:100%;
+
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+
+.details .analytics .doughnut{
+    background-color:var(--navcolor);
+}
+
+#mydoughnut{
+    margin-inline:auto;
+}
+
+
+.details .analytics .earning{
+    width:100%;
+    background-color:var(--navcolor);
+    grid-row:2 / 4;
+}
+
+
+@media only screen and (width < 1200px){
+    .details .details-number{    
+        grid-template-columns:1fr;
+    }
+}
+
+@media only screen and (width < 769px){
+    .details .details-list{
+        grid-template-columns:1fr;
+    }
+
+    .details .details-list div:last-child{
+        grid-column:1;
+    }
+}
 
 /* End Main Section */

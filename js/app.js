@@ -128,3 +128,55 @@ function activelink() {
 }
 
 //left sidebar hover animation
+
+//Revenue bar chart js 
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'],
+    datasets: [{
+      label: 'Revenue Analysis',
+      data: [12, 19, 3, 10, 13, 3, 6, 2, 9, 14, 5, 15],
+      backgroundColor : [
+        'rgba(255, 99, 132, 0.7)',
+        'rgba(255, 159, 64, 0.7)',
+        'rgba(255, 205, 86, 0.7)',
+        'rgba(75, 192, 192, 0.7)',
+        'rgba(54, 162, 235, 0.7)',
+        'rgba(153, 102, 255, 0.7)',
+        'rgba(201, 203, 207, 0.7)'
+      ],
+      borderWidth: 1
+    }]
+  },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+});
+
+//Doughnut chart sale analysis 
+const ctx2 = document.getElementById('mydoughnut');
+new Chart(ctx2, {
+  type: 'doughnut',
+  data: {
+    labels: ['product C: 15','product B: 26','product A: 42'],
+    datasets: [{
+      label: 'Revenue Analysis',
+      data: [42,25,42],
+      backgroundColor : [
+        'yellow',
+        'lightgreen',
+        'slateblue'
+      ],
+      borderWidth: 2,
+      weight : 2
+    }]
+  },
+ 
+});
