@@ -1145,6 +1145,7 @@ body {
 
 .details .analytics .doughnut{
     background-color:var(--navcolor);
+    padding-bottom:50px;
 }
 
 #mydoughnut{
@@ -1156,6 +1157,155 @@ body {
     width:100%;
     background-color:var(--navcolor);
     grid-row:2 / 4;
+}
+
+.earning .report-title{
+    width:100%;
+    padding:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    & h5{
+        color:var(--fontcolor);
+        font-size:1rem;
+        font-weight:400;
+    }
+
+    & i{
+        color:var(--thumbcolor);
+        cursor:pointer;
+        padding:10px;
+    }
+
+    & i:hover{
+        color:slateblue;
+    }
+}
+
+.earning .report-title .report-option{
+    position:relative;
+}
+
+.report-content{
+    width:150px;
+    height:auto;
+    background:var(--navcolor);
+    box-shadow:0 0 1px #dddd;
+
+    position:absolute;
+    top:100%;
+    right:0;
+    z-index:100;
+
+    visibility:hidden;
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.2s ease;
+
+    & li{
+        padding:6px 20px;
+    }
+
+    & li:hover{
+        background-color:var(--hovercolor);
+    }
+
+    & li a{
+        text-decoration:none;
+        color:var(--thumbcolor);
+    }
+
+    & li:hover a{
+        color:var(--fontcolor);
+    }
+
+}
+
+ .report-content.topshow{  
+    visibility:visible;
+    opacity:1;
+    transform:translateY(0px);
+}
+
+.earning .total-earn{
+    width:100%;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.earning .total-earn .skill{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    position:relative;
+    transform:rotate(-90deg);
+}
+
+.earning .total-earn .skill .outer{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    /* padding:6px; */
+}
+
+.earning .total-earn .skill .inner{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+}
+
+.earning .total-earn .skill circle{
+    fill:none;
+    stroke:#2e86de;
+    stroke-width:6px;
+    stroke-dasharray:320;
+    stroke-dashoffset:178;
+}
+
+.earning .total-earn .month-earn circle{
+    stroke:#00cec9;
+    stroke-dashoffset:190;
+}
+
+.earning .total-earn .skill svg:hover circle{
+    stroke:#77b1eb;
+}
+
+.earning .total-earn .month-earn svg:hover circle{
+    stroke:#81ecec;
+}
+
+.earning .total-earn .skill svg{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.earning .total-earn .week-earn,
+.earning .total-earn .month-earn{
+    width:50%;
+    
+    display:grid;
+    place-items:center;
+}
+
+.earning .total-earn .earn-detail{
+    text-align:center;
+    padding-top:30px;
+    & h5{
+        color:var(--thumbcolor);
+        margin-bottom:5px;
+    }
+
+    & span{
+        color:var(--fontcolor);
+        font-size:1.2rem;
+        font-weight:500;
+    }
 }
 
 
@@ -1172,6 +1322,16 @@ body {
 
     .details .details-list div:last-child{
         grid-column:1;
+    }
+}
+
+@media only screen and (width < 570px){
+    .earning .total-earn{
+       flex-direction:column;
+
+       & .week-earn{
+        padding-bottom:30px;
+       }
     }
 }
 
